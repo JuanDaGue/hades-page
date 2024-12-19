@@ -12,11 +12,13 @@ import {
     FormField,
     FormItem,
     FormMessage,
-    } from "@/components/ui/Form";
+    } from "@/components/ui/form";
     import { Input } from "@/components/ui/input";
-    import { toast } from "@/components/ui/use-toast";
+    //import { toast } from "@/components/ui/use-toast";
+
     import { formSchema } from "./RegisterForm.form";
     import { useRouter } from "next/navigation";
+    import { toast } from "@/hooks/use-toast";
 
     export function RegisterForm() {
     const router = useRouter();
