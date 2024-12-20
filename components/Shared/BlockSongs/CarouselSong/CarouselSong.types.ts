@@ -1,8 +1,7 @@
 import { Song } from "@prisma/client";
 
 export type CarouselSongProps = {
-    movies: Song[];
+    Songs: Array<any>; 
     isMyList: boolean;
-    songs: Song[];
-    //song: Song;
+
 };

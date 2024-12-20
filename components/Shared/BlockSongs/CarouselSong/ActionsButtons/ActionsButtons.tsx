@@ -8,21 +8,21 @@ import { useRouter } from "next/navigation";
 import { useLovedSongs } from "@/hooks/use-loved-songs";
 
 export function ActionsButtons(props: ActionsButtonsProps) {
-    const { movieId, movie, isMyList } = props;
+    const { songId, song, isMyList } = props;
     const { addLovedFilm, removeLovedItem } = useLovedSongs();
 
     const router = useRouter();
 
     const onPlayButton = () => {
-        router.push(`/movie/${movieId}`);
+        router.push(`/song/${songId}`);
     };
 
     const onAddToMyList = () => {
-        addLovedFilm(movie);
+        addLovedFilm(song);
     };
 
     const onRemoveFromMyList = () => {
-        removeLovedItem(movieId);
+        removeLovedItem(songId);
     };
 
     return (

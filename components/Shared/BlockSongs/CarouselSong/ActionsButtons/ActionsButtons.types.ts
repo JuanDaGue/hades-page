@@ -1,8 +1,8 @@
 
-import { Movie } from "@prisma/client";
+import { Song } from "@prisma/client";
 
 export type ActionsButtonsProps = {
-  movieId: string;
-  movie: Movie;
+songId: any;
+  song: Song;
   isMyList: boolean;
 };
