@@ -1,22 +1,22 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { Movie } from "@prisma/client";
+import { Song } from "@prisma/client";
 import { toast } from "./use-toast";
 import { useCurrentNetflixUser } from "./use-current-user";
 
 interface UseAddFilmMyList {
-  lovedFilmsByUser: { [userId: string]: Movie[] };
-  addLovedFilm: (data: Movie) => void;
+ lovedSongsByUser: { [userId: string]: Song[] };
+  addLovedFilm: (data: Song) => void;
   removeLovedItem: (id: string) => void;
 }
 
-export const useLovedFilms = create(
+export const useLovedSongs = create(
   persist<UseAddFilmMyList>(
     (set, get) => ({
-      lovedFilmsByUser: {},
+     lovedSongsByUser: {},
 
-      addLovedFilm: (data: Movie) => {
+      addLovedFilm: (data: Song) => {
         const { currentUser } = useCurrentNetflixUser.getState(); // Get the current user
 
         if (!currentUser) {
@@ -25,9 +25,9 @@ export const useLovedFilms = create(
           });
         }
 
-        const currentLovedItems = get().lovedFilmsByUser[currentUser.id] || [];
+        const currentLovedItems = get().lovedSongsByUser[currentUser.id] || [];
         const existingItem = currentLovedItems.find(
-          (item: Movie) => item.id === data.id
+          (item: Song) => item.id === data.id
         );
 
         if (existingItem) {
@@ -38,8 +38,8 @@ export const useLovedFilms = create(
         }
 
         set({
-          lovedFilmsByUser: {
-            ...get().lovedFilmsByUser,
+         lovedSongsByUser: {
+            ...get().lovedSongsByUser,
             [currentUser.id]: [...currentLovedItems, data],
           },
         });
@@ -59,11 +59,11 @@ export const useLovedFilms = create(
           });
         }
 
-        const currentLovedItems = get().lovedFilmsByUser[currentUser.id] || [];
+        const currentLovedItems = get().lovedSongsByUser[currentUser.id] || [];
 
         set({
-          lovedFilmsByUser: {
-            ...get().lovedFilmsByUser,
+         lovedSongsByUser: {
+            ...get().lovedSongsByUser,
             [currentUser.id]: currentLovedItems.filter(
               (item) => item.id !== id
             ),

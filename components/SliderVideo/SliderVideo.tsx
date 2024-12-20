@@ -1,18 +1,18 @@
-"use client";
+
 import { Info, Play } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function SliderVideo() {
 
     return (
-        <div className="relative w-full h-screen">
+        <div className="relative w-full -[80vw] md:h-[56.25vw] lg:h-[45vw]">
         {/* Video Background */}
         <video
             autoPlay
             loop
             muted
-            className="absolute top-0 left-0 w-full h-full/2 object-cover brightness-50 z-0"
-            src="/videos/Hades_return.mp4"
+            className="brightness-50 object-fill w-full h-[80vw] md:h-[56.25vw] lg:h-[45vw]"
+            src="/videos/Hades_retunr.mp4"
         />
 
         {/* Content Overlay */}
@@ -50,7 +50,7 @@ export default function SliderVideo() {
         />
 
       {/* Gradient Overlay (Optional for styling) */}
-      {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/60 to-transparent z-5" /> */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/60 to-transparent z-5" />
     </div>
-  );
+    );
 }
