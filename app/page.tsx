@@ -6,7 +6,7 @@ import SliderVideo from "@/components/SliderVideo/SliderVideo";
 import { TrendingLyrics } from "./(home)/components/TrendingLyrics";
 import { ListLyrics } from "./(home)/components/ListLyrics";
 import Footer from "@/components/Shared/Footer/Footer";
-import { fetchRockSongs } from "@/app/api/spotify/route";
+import { fetchRockSongs } from "@/app/api/spotify/fetchRockSongs";
 
 export default async function Home() {
   const session = await auth();
