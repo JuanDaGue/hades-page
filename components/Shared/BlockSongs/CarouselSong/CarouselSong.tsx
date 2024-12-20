@@ -11,7 +11,7 @@ import { CarouselSongProps } from "./CarouselSong.types";
 // import { ActionsButtons } from "./ActionsButtons";
 
 export function CarouselSong(props: CarouselSongProps) {
-  const { Songs, isMyList } = props;
+  const { Songs } = props;
 
   return (
         <Carousel className="w-full">
