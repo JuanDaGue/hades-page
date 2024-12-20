@@ -91,7 +91,7 @@ export function LoginForm() {
 
         <FormError message={error} />
 
-        <Button type="submit" className="w-full bg-[#E50914]">
+        <Button type="submit" className="w-full bg-[#5e1010]">
           Iniciar sesión
         </Button>
       </form>

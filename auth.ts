@@ -7,8 +7,6 @@
     adapter: PrismaAdapter(db),
     callbacks: {
         async session({ token, session }) {
-            console.log("session", session);
-            console.log("token", token);
         if (token.sub && session.user) {
             session.user.id = token.sub;
         }

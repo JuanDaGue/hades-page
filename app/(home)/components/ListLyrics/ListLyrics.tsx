@@ -14,7 +14,7 @@ export function ListLyrics(props: ListSongsProps) {
 
   const userMusic = currentUser?.id;
   const lovedSongs = userMusic ? lovedSongsByUser[userMusic] : [];
-
+  console.log(songs);
   return (
     <div>
       <BlockSongs

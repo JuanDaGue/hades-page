@@ -1,54 +1,45 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import { Logo } from './Logo';
+import { BellRing, Menu, Search } from "lucide-react";
+import Link from "next/link";
 
-export function MobileNavbar() {
-    const [isOpen, setIsOpen] = useState(false);
+import { itemsNavbar } from "@/data/itemsNavbar";
+
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { NavbarMobileProps } from "./NavbarMobile.types";
+import { SelectorProfile } from "@/components/Shared/SelectorProfile";
+import { Logo } from "./Logo";
+
+export function MobileNavbar(props: NavbarMobileProps) {
+    const { users } = props;
 
     return (
-        <nav className="bg-zinc-900 p-4">
-        <div className="container mx-auto flex justify-between items-center">
-            <div className="text-white text-2xl">
-            <Logo/>
+        <div className="p-4 flex justify-between">
+        <Logo />
+
+        <Sheet>
+            <SheetTrigger>
+            <Menu />
+            </SheetTrigger>
+            <SheetContent side="left" className="bg-black">
+            <div className="flex flex-col gap-4">
+                {itemsNavbar.map((item) => (
+                <Link
+                    key={item.name}
+                    href={item.link}
+                    className="hover:textt-gray-300 transition-all duration-300"
+                >
+                    {item.name}
+                </Link>
+                ))}
             </div>
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-            ☰
-            </button>
+
+            <div className="border-[1px] border-white/70 my-5" />
+            <div className="flex justify-between gap-6 mt-4">
+                <Search className="cursor-pointer" />
+                <BellRing className="cursor-pointer" />
+                <SelectorProfile users={users} />
+            </div>
+            </SheetContent>
+        </Sheet>
         </div>
-        {isOpen && (
-            <ul className="mt-4 space-y-2">
-            <li>
-                <Link href="/" legacyBehavior>
-                <a className="text-white block">Home</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/lyrics" legacyBehavior>
-                <a className="text-white block">Lyrics</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/events" legacyBehavior>
-                <a className="text-white block">Events</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/instruments" legacyBehavior>
-                <a className="text-white block">Instruments</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/songs" legacyBehavior>
-                <a className="text-white block">Songs</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/login" legacyBehavior>
-                <a className="text-white block">Login</a>
-                </Link>
-            </li>
-            </ul>
-        )}
-        </nav>
     );
 }

@@ -1,6 +1,5 @@
 import { db } from "@/lib/db";
 import Card from "./components/utils/Card";
-import { Navbar } from "@/components/Shared/Navbar";
 
 export default async function LyricsPage() {
   const lyrics = await db.song.findMany({
@@ -17,10 +16,12 @@ export default async function LyricsPage() {
     ],
   });
 
+
+
   return (
-    <div className="relative bg-zinc-900">
-      <Navbar />
-      <div className="bg-zinc-900 h-full flex flex-col items-center">
+    <div className="relative">
+
+      <div className="h-full flex flex-col items-center">
         <h1 className="text-2xl font-semibold my-8 text-white">
           Todas las letras
         </h1>
@@ -42,6 +43,5 @@ export default async function LyricsPage() {
         </div>
       </div>
     </div>
-
   );
 }

@@ -14,7 +14,7 @@ interface UseAddFilmMyList {
 export const useLovedSongs = create(
   persist<UseAddFilmMyList>(
     (set, get) => ({
-     lovedSongsByUser: {},
+    lovedSongsByUser: {},
 
       addLovedFilm: (data: Song) => {
         const { currentUser } = useCurrentNetflixUser.getState(); // Get the current user

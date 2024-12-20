@@ -102,7 +102,7 @@ import {
                 </FormItem>
             )}
             />
-            <Button type="submit" className="w-full bg-[#E50914]">
+            <Button type="submit" className="w-full bg-[#741318]">
             Registrarse
             </Button>
         </form>

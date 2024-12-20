@@ -4,9 +4,12 @@ import { FaBell, FaSearch, FaUser } from 'react-icons/fa';
 import { Logo } from './Logo';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { cn } from '@/lib/utils';
+import { SelectorProfile } from "@/components/Shared/SelectorProfile";
+import { NavbarDesktopProps } from "./NavbarDesktop.types";
 
-export function DesktopNavbar() {
+export function DesktopNavbar(props: NavbarDesktopProps) {
   const scrollPosition = useScrollPosition(); // Invoke the hook to get the scroll position
+  const { users } = props;
 
   return (
     <nav
@@ -22,28 +25,28 @@ export function DesktopNavbar() {
           </div>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="text-white">
-                Home
+              <Link href="/" legacyBehavior>
+                <a className="text-white">Home</a>
               </Link>
             </li>
             <li>
-              <Link href="/lyrics" className="text-white">
-                Lyrics
+              <Link href="/lyrics" legacyBehavior>
+                <a className="text-white">Lyrics</a>
               </Link>
             </li>
             <li>
-              <Link href="/events" className="text-white">
-                Events
+              <Link href="/events" legacyBehavior>
+                <a className="text-white">Events</a>
               </Link>
             </li>
             <li>
-              <Link href="/instruments" className="text-white">
-                Instruments
+              <Link href="/instruments" legacyBehavior>
+                <a className="text-white">Instruments</a>
               </Link>
             </li>
             <li>
-              <Link href="/songs" className="text-white">
-                Songs
+              <Link href="/songs" legacyBehavior>
+                <a className="text-white">Songs</a>
               </Link>
             </li>
           </ul>
@@ -51,7 +54,8 @@ export function DesktopNavbar() {
         <div className="flex items-center space-x-4">
           <FaSearch className="text-white cursor-pointer" />
           <FaBell className="text-white cursor-pointer" />
-          <FaUser className="text-white cursor-pointer" />
+          {/* <FaUser className="text-white cursor-pointer" /> */}
+          <SelectorProfile users={users} />
         </div>
       </div>
     </nav>

@@ -4,19 +4,19 @@ export const itemsNavbar = [
         link: "/",
         },
         {
-        name: "Series",
-        link: "/series",
+        name: "Letras",
+        link: "/lyrics",
         },
         {
-        name: "Películas",
-        link: "/movies",
+        name: "Events",
+        link: "/Events",
         },
         {
-        name: "Novedades más vistas",
-        link: "/more-views",
+        name: "Instruments",
+        link: "/Instruments",
         },
         {
-        name: "Mi lista",
-        link: "/my-list",
+        name: "Songs",
+        link: "/Songs",
         },
   ];

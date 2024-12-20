@@ -1,20 +1,20 @@
 import { db } from "@/lib/db";
-import { Navbar } from "@/components/Shared/Navbar";
+
 import { getArtistImage } from "../components/utils/getArtistImage";
 
+
 export default async function SongPage({ params }: { params: { id: string } }) {
-  const { id } = params;
-  const song = await db.song.findUnique({
-    where: { id },
-  });
+    const { id } = params;
+    const song = await db.song.findUnique({
+        where: { id },
+    });
 
-  if (!song) {
-    return <div className="bg-zinc-900 min-h-screen p-8 text-white">Song not found</div>;
-  }
+    if (!song) {
+        return <div className="min-h-screen p-8 text-white">Song not found</div>;
+    }
+    return (
+    <div className="min-h-screen flex flex-col">
 
-  return (
-    <div className="bg-zinc-900 min-h-screen flex flex-col">
-        <Navbar />
         <div className="flex flex-col items-center p-8 text-white max-w-5xl w-full mx-auto">
             <img
             src={getArtistImage(song.artist)}
@@ -32,6 +32,8 @@ export default async function SongPage({ params }: { params: { id: string } }) {
             <h2 className="text-2xl font-semibold mb-2">Lyrics:</h2>
             <pre className="bg-zinc-800 p-4 rounded w-full max-w-5xl">{song.lyrics}</pre>
         </div>
+
         </div>
+        
     );
 }

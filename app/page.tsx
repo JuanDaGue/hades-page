@@ -5,6 +5,8 @@ import { Navbar } from "@/components/Shared/Navbar";
 import SliderVideo from "@/components/SliderVideo/SliderVideo";
 import { TrendingLyrics } from "./(home)/components/TrendingLyrics";
 import { ListLyrics } from "./(home)/components/ListLyrics";
+import Footer from "@/components/Shared/Footer/Footer";
+import { fetchRockSongs } from "@/app/api/spotify/route";
 
 export default async function Home() {
   const session = await auth();
@@ -18,16 +20,23 @@ export default async function Home() {
       userId: session.user.id,
     },
   });
-  const songs = await db.song.findMany();
+
   const trendingSongs = await db.popularSong.findMany();
-  
-  // console.log(songs)
+
+  let rockSongs = [];
+  try {
+    rockSongs = await fetchRockSongs();
+  } catch (err) {
+    console.error("Error fetching rock songs:", err);
+  }
+  //console.log("rockSongs", rockSongs);
   return (
     <div className="relative bg-zinc-900">
-      <Navbar />
+      <Navbar users={usersNetflix} />
       <SliderVideo />
-      <TrendingLyrics songs ={trendingSongs}/>
-      <ListLyrics songs ={songs} />
+      <TrendingLyrics songs={rockSongs.tracks?.items} />
+      <ListLyrics songs={rockSongs.albums.items} />
+      <Footer />
     </div>
   );
 }

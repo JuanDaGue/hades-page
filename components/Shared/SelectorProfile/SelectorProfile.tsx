@@ -33,7 +33,7 @@ export function SelectorProfile(props: SelectorProfileProps) {
         <div className="flex gap-1 items-center">
           <Image
             src={
-              currentUser ? currentUser.avatarUrl : "/profiles/profile-1.png"
+              currentUser ? currentUser.avatarUrl : "/feathers.jpeg"
             }
             alt="Profile Image"
             width={35}
