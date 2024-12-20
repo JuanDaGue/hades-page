@@ -1,8 +1,7 @@
-
 import { Song } from "@prisma/client";
 
 export type ActionsButtonsProps = {
-        songId: any|string;
-        song: Song;
-        isMyList: boolean;
+  songId: string; // Asegúrate de que songId sea siempre una cadena
+  song: Song;
+  isMyList: boolean;
 };

@@ -1,21 +1,20 @@
-export type TrendingLyricsProps = {
-    songs: {
-        title: string;
-        id: string;
-        artist: string;
-        album: string;
-        genre: string[];
-        releaseDate: Date;
-        duration: string;
-        lyrics: string;
-        mainIdea: string;
-        description: string | null;
-        ranking: number;
-    }[];
+export type Data = {
+    uri: string;
+    coverArt: {
+        sources: { url: string; width: number; height: number }[];
     };
+    artists: {
+        items: { profile: { name: string } }[];
+    };
+    album: {
+        name: string;
+    };
+    name: string;
+    [key: string]: any; // Esta línea permite que existan otras propiedades no especificadas
+};
 
-    export type SongData = {
-    data: any;
+export type SongData = {
+    data: Data;
     id: string; // Unique identifier
     name: string; // Song name
     uri: string; // Spotify URI
@@ -23,11 +22,11 @@ export type TrendingLyricsProps = {
         uri: string;
         name: string;
         coverArt: {
-        sources: { url: string; width: number; height: number }[];
+            sources: { url: string; width: number; height: number }[];
         };
         id: string;
         sharingInfo: {
-        shareUrl: string;
+            shareUrl: string;
         };
     };
     artists: {
