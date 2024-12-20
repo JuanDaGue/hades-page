@@ -1,8 +1,9 @@
 export type Data = {
     uri: string;
+    albumOfTrack: {
     coverArt: {
         sources: { url: string; width: number; height: number }[];
-    };
+    };};
     artists: {
         items: { profile: { name: string } }[];
     };
@@ -10,7 +11,7 @@ export type Data = {
         name: string;
     };
     name: string;
-    [key: string]: any; // Esta línea permite que existan otras propiedades no especificadas
+    key: string; // Esta línea permite que existan otras propiedades no especificadas
 };
 
 export type SongData = {

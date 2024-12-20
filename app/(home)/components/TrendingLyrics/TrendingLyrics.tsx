@@ -19,7 +19,7 @@ export function TrendingLyrics({ songs }: NewTrendingLyricsProps) {
 
           return (
             <a
-              key={song.data.id}
+              key={song.data.uri}
               href={song.data.uri}
               target="_blank"
               rel="noopener noreferrer"
