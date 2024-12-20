@@ -31,8 +31,8 @@ export default async function Home() {
     <div className="relative bg-zinc-900">
       <Navbar users={usersNetflix} />
       <SliderVideo />
-      <TrendingLyrics songs={rockSongs.tracks?.items} />
-      <ListLyrics songs={rockSongs.albums.items} />
+      <TrendingLyrics songs={rockSongs?.tracks?.items} />
+      <ListLyrics songs={rockSongs?.albums?.items} />
       <Footer />
     </div>
   );

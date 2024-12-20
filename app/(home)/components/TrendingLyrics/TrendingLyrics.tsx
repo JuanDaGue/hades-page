@@ -9,7 +9,7 @@ export function TrendingLyrics({ songs }: NewTrendingLyricsProps) {
         Las canciones de Metal y rock más populares hoy en el Mundo entero.
       </h3>
       <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-4">
-        {songs.slice(0, 4).map((song) => {
+        {songs?.slice(0, 4).map((song) => {
           // Safely access properties with optional chaining
           const albumCover = song.data.albumOfTrack
           ?.coverArt?.sources?.[0]?.url;

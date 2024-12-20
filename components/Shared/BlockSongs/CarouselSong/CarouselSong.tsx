@@ -17,7 +17,7 @@ export function CarouselSong(props: CarouselSongProps) {
         <Carousel className="w-full">
         <CarouselContent className="overflow-hidden">
             {Songs.map((song) => {
-            const albumCover = song.data?.coverArt?.sources[0]?.url;
+            const albumCover = song.data.uri;//.coverArt?.sources[0]?.url;
             const artistName = song.data.artists?.items[0].profile.name || "Unknown Artist";
             const songName = song.data.name;
 
@@ -58,7 +58,7 @@ export function CarouselSong(props: CarouselSongProps) {
                         </p>
                         </div>
                         <div className="p-2 shadow-lg">
-                        <ActionsButtons songId={song.data.uri} song={song} isMyList={isMyList} />
+                        {/* <ActionsButtons songId={song.data.uri} song={song} isMyList={isMyList} /> */}
                         </div>
                     </div>
                     </CardContent>
