@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { CarouselSongProps } from "./CarouselSong.types";
-import { ActionsButtons } from "./ActionsButtons";
+// import { ActionsButtons } from "./ActionsButtons";
 
 export function CarouselSong(props: CarouselSongProps) {
   const { Songs, isMyList } = props;
