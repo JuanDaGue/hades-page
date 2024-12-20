@@ -20,9 +20,6 @@ export default async function Home() {
       userId: session.user.id,
     },
   });
-
-  const trendingSongs = await db.popularSong.findMany();
-
   let rockSongs = [];
   try {
     rockSongs = await fetchRockSongs();

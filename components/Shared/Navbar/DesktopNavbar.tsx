@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { FaBell, FaSearch, FaUser } from 'react-icons/fa';
+import { FaBell, FaSearch } from 'react-icons/fa';
 import { Logo } from './Logo';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { cn } from '@/lib/utils';

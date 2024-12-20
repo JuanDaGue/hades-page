@@ -1,5 +1,3 @@
-import { Song } from "@prisma/client";
-
 export type TrendingLyricsProps = {
     songs: {
         title: string;
@@ -47,5 +45,5 @@ export type TrendingLyricsProps = {
 };
 
 export interface NewTrendingLyricsProps {
-  songs: SongData[];
+    songs: SongData[];
 }

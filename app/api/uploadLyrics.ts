@@ -22,7 +22,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
         });
         res.status(200).json(newSong);
-        } catch (error) {
+        } catch (error: any) {  // Añadido : any para manejar el tipo
+        console.error('Error creating song:', error);  // Usar la variable `error`
         res.status(500).json({ error: 'Error creating song' });
         }
     } else {
