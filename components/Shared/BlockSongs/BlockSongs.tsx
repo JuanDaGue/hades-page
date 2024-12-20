@@ -2,7 +2,7 @@ import { BlockSongsProps } from "./BlockSongs.types";
 // import { CarouselSong } from "./CarouselSong";
 
 export function BlockSongs(props: BlockSongsProps) {
-    const { title, Songs, isMyList } = props;
+    const { title, Songs } = props;
 
     if (!Songs || Songs.length === 0) return null;
 
