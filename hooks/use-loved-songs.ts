@@ -38,7 +38,7 @@ export const useLovedSongs = create(
         }
 
         set({
-         lovedSongsByUser: {
+        lovedSongsByUser: {
             ...get().lovedSongsByUser,
             [currentUser.id]: [...currentLovedItems, data],
           },

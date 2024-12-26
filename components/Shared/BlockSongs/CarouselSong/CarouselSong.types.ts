@@ -1,5 +1,6 @@
-import { SongData } from "@/app/(home)/components/TrendingLyrics/TrendingLyrics.types";
+// import  SongData  from "../../../../app/(home)/components/TrendingLyrics/TrendingLyrics.types";
+import {NewTrendingLyricsProps} from "../../../../app/(home)/components/TrendingLyrics/TrendingLyrics.types";
 export type CarouselSongProps = {
-    Songs: SongData[];
+    Songs: NewTrendingLyricsProps[];
     isMyList: boolean;
 };
