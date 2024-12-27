@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { getArtistImage } from "../components/utils/getArtistImage";
 import Track from "./components/SongPage";
-import { GuitarProReader } from "./components/GuitarProReader";
+// import { GuitarProReader } from "./components/GuitarProReader";
 
 export default async function SongPage({ params }: { params: { id: string } }) {
     const { id } = params;
@@ -52,7 +52,7 @@ export default async function SongPage({ params }: { params: { id: string } }) {
             <Track title={song.title} />
             <div className="mt-8">
             <h1 className="text-xl font-semibold mb-4">Guitar Pro Reader</h1>
-            <GuitarProReader />
+            {/* <GuitarProReader /> */}
             </div>
         </div>
         </div>
