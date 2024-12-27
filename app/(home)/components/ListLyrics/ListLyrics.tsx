@@ -19,7 +19,7 @@ export function ListLyrics(props: ListSongsProps) {
     <div>
       <BlockSongs
         title="Canciones favoritas"
-        Songs={lovedSongs}
+        Songs={lovedSongs }
         isMyList={true}
       />
       <BlockSongs

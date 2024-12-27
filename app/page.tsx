@@ -32,7 +32,7 @@ export default async function Home() {
     <div className="relative bg-zinc-900">
       <Navbar users={usersNetflix} />
       <SliderVideo />
-      <TrendingLyrics songs={rockSongs?.items} />
+      <TrendingLyrics songs={rockSongs?.items} isMyList={false} Songs={rockSongs?.items} />
       <ListLyrics songs={rockSongs?.items} />
       <Footer />
     </div>

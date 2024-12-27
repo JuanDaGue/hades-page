@@ -71,6 +71,12 @@ body, html, :root {
     --chart-5: 340 75% 55%;
   }
 }
+.overflow-auto { overflow-x: hidden;
+  scrollbar-width: none;
+}
+body, html, :root  {
+ scrollbar-width: none;
+}
 
 @layer base {
   * {

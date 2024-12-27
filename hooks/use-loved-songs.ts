@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { Song } from "@prisma/client";
+// import { Song } from "@prisma/client";
+import { Song } from "@/components/Shared/BlockSongs/CarouselSong/CarouselSong.types";
 import { toast } from "./use-toast";
 import { useCurrentNetflixUser } from "./use-current-user";
 
