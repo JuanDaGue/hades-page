@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from 'react';
-import { Info, Play, VolumeX, Volume2 } from "lucide-react";
+import { Info, Play, Volume2 } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import { Button } from "../ui/button";
 
