@@ -6,7 +6,7 @@ import { itemsNavbar } from "@/data/itemsNavbar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { NavbarMobileProps } from "./NavbarMobile.types";
 import { SelectorProfile } from "@/components/Shared/SelectorProfile";
-import { Logo } from "./Logo";
+import { Logo } from "./../Logo";
 
 export function MobileNavbar(props: NavbarMobileProps) {
     const { users } = props;

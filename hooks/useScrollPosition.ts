@@ -1,20 +1,21 @@
 "use client";
+
 import { useEffect, useState } from "react";
 
-export const useScrollPosition = () => {
+    export const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        const handleScroll = () => {
-        setScrollPosition(window.scrollY);
+        const updatePosition = () => {
+        setScrollPosition(window.pageYOffset);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", updatePosition);
 
-        return () => {
-        window.removeEventListener("scroll", handleScroll);
-        };
+        updatePosition();
+
+        return () => window.removeEventListener("scroll", updatePosition);
     }, []);
 
     return scrollPosition;
-};  
+};

@@ -1,6 +1,6 @@
 "use client";
-import { DesktopNavbar } from './DesktopNavbar';
-import { MobileNavbar } from './MobileNavbar';
+import { DesktopNavbar } from './NavbarDesck/DesktopNavbar';
+import { MobileNavbar } from './NavbarMobile/MobileNavbar';
 import { NavbarProps } from "./Navbar.types";
 
 const Navbar: React.FC<NavbarProps> = (props) => {

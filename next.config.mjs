@@ -12,6 +12,11 @@ const nextConfig = {
             hostname: "i.ytimg.com", // Allow images from YouTube's CDN
             pathname: "/**", // Allow all paths under this hostname
             },
+            {
+            protocol: "https",
+            hostname: "raw.githubusercontent.com", // Allow images from GitHub's raw content
+            pathname: "/**", // Allow all paths under this hostname
+            },
         ],
         },
     };
