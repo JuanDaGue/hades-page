@@ -2,13 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { ChevronDown, LogOut, Play } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 import {
     DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
+
     DropdownMenuTrigger,
     } from "@/components/ui/dropdown-menu";
 
@@ -17,13 +16,8 @@ import {
     }
 
     export function SearchSong({ videos }: VideoSelectorProps) {
-    const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-    const router = useRouter();
-
-    const onPlayVideo = (videoId: string) => {
-        setSelectedVideo(videoId);
-    };
-
+    const [selectedVideo] = useState<string | null>(null);
+   
     return (
         <DropdownMenu>
         <DropdownMenuTrigger asChild>
