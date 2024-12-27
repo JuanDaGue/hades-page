@@ -9,7 +9,7 @@ const Track: React.FC<TrackProps> = ({ title }) => {
     const [trackUrl, setTrackUrl] = useState<string | null>(null);
 
     useEffect(() => {
-        const trackPath = `/tracks/${title.toLowerCase()}.mp3`;
+        const trackPath = `/Tracks/${title.toLowerCase()}.mp3`;
         fetch(trackPath)
         .then((response) => {
             if (response.ok) {

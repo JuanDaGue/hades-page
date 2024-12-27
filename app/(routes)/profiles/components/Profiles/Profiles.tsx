@@ -41,7 +41,7 @@ import {
 
     const deleteUser = async (userIdNetflix: string) => {
         try {
-        axios.delete("/api/userNetflix", { data: { userIdNetflix } });
+        await axios.delete("/api/userNetflix", { data: { userIdNetflix } });
         setManageProfiles(false);
         router.refresh();
         } catch (error) {
@@ -51,8 +51,8 @@ import {
     };
 
     return (
-        <div>
-        <div className="flex gap-7">
+        <div className="flex flex-col items-center">
+        <div className="flex flex-wrap gap-4 justify-center sm:gap-6 md:gap-8">
             {users.map((user) => (
             <div
                 key={user.id}
@@ -69,7 +69,7 @@ import {
                     "border-transparent hover:border-2 hover:border-white rounded-md"
                 )}
                 />
-                <p className="mt-2 text-gray-500 uppercase text-lg">
+                <p className="mt-2 text-gray-500 uppercase text-sm sm:text-base md:text-lg">
                 {user.profileName}
                 </p>
 

@@ -9,12 +9,13 @@ import { NavbarDesktopProps } from "./NavbarDesktop.types";
 
 export function DesktopNavbar(props: NavbarDesktopProps) {
   const scrollPosition = useScrollPosition();
+
   const { users } = props;
 
   return (
     <div
       className={cn(
-        "z-30 left-0 right-0 top-0 h-16 fixed w-full transition-all duration-300",
+         "z-30 left-0 right-0 top-0 h-16 fixed w-full transition-all duration-300",
         scrollPosition > 20 ? "bg-black" : "bg-transparent"
       )}
     >
