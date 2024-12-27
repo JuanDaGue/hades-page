@@ -11,11 +11,11 @@ import {
     DropdownMenuTrigger,
     } from "@/components/ui/dropdown-menu";
 
-    interface VideoSelectorProps {
-    videos: Array<{ id: string; title: string; thumbnailUrl: string }>;
-    }
+    // interface VideoSelectorProps {
+    // videos: Array<{ id: string; title: string; thumbnailUrl: string }>;
+    // }
 
-    export function SearchSong({ videos }: VideoSelectorProps) {
+    export function SearchSong() {
     const [selectedVideo] = useState<string | null>(null);
    
     return (
