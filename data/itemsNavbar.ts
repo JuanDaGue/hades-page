@@ -9,14 +9,14 @@ export const itemsNavbar = [
         },
         {
         name: "Events",
-        link: "/Events",
+        link: "/events",
         },
         {
         name: "Instruments",
-        link: "/Instruments",
+        link: "/instruments",
         },
         {
         name: "Songs",
-        link: "/Songs",
+        link: "/songs",
         },
   ];
