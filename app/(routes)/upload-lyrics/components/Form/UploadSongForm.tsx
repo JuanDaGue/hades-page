@@ -1,28 +1,46 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useToast } from '@/hooks/use-toast';
-import { Button } from '@/components/ui/button';
-import { Upload } from 'lucide-react';
+"use client";
 
-export default function UploadSongForm() {
-  const [formData, setFormData] = useState({
-    title: '',
-    artist: '',
-    album: '',
-    genre: '',
-    releaseDate: '',
-    duration: '',
-    lyrics: '',
-    mainIdea: '',
-    description: '',
-    ranking: '',
+import { useState } from "react";
+import axios from "axios";
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Upload } from "lucide-react";
+
+interface UploadSongFormProps {
+  showtrack: boolean;
+}
+
+export default function UploadSongForm({ showtrack }: UploadSongFormProps) {
+
+  const [formData, setFormData] = useState(showtrack ? {
+    title: "",
+    artist: "",
+    album: "",
+    genre: "",
+    releaseDate: "",
+    duration: "",
+    lyrics: "",
+    mainIdea: "",
+    description: "",
+    ranking: "",
+  } : {
+    title: "",
+    artist: "",
+    album: "",
+    genre: "",
+    releaseDate: "",
+    duration: "",
+    lyrics: "",
+    mainIdea: "",
+    description: "",
   });
 
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: name === "ranking" ? parseInt(value, 10) : value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,39 +50,56 @@ export default function UploadSongForm() {
       setIsLoading(true);
 
       // Split genre into an array
-      const genreArray = formData.genre.split(',').map((item) => item.trim());
+      const genreArray = formData.genre.split(",").map((item) => item.trim());
 
-      const res = await axios.post('/api/create-lyrics', {
+      const url = showtrack ? "/api/create-lyrics" : "/api/create-popular-lyrics";
+      console.log(url);
+      console.log(formData);
+      const res = await axios.post(url, {
         lyrics: [{ ...formData, genre: genreArray }],
       });
 
       if (res.status === 201) {
-        toast({ title: 'Song uploaded successfully!' });
-        setFormData({
-          title: '',
-          artist: '',
-          album: '',
-          genre: '',
-          releaseDate: '',
-          duration: '',
-          lyrics: '',
-          mainIdea: '',
-          description: '',
-          ranking: '',
+        toast({ title: showtrack ? "Track uploaded successfully!" : "Popular lyrics uploaded successfully!" });
+        setFormData(showtrack ? {
+          title: "",
+          artist: "",
+          album: "",
+          genre: "",
+          releaseDate: "",
+          duration: "",
+          lyrics: "",
+          mainIdea: "",
+          description: "",
+          ranking: "",
+        } : {
+          title: "",
+          artist: "",
+          album: "",
+          genre: "",
+          releaseDate: "",
+          duration: "",
+          lyrics: "",
+          mainIdea: "",
+          description: "",
         });
       } else {
-        toast({ title: 'Error uploading song' });
+        toast({ title: "Error uploading" });
       }
     } catch (error) {
-      console.error('Error uploading song', error);
-      toast({ title: 'Error uploading song' });
+      console.error("Error uploading song", error);
+      toast({ title: "Error uploading song" });
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 p-8 max-w-4xl w-full mx-auto border-2 border-white text-white shadow-md rounded bg-transparent">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col space-y-4 p-8 max-w-4xl w-full mx-auto border-2 border-white text-white shadow-md rounded bg-transparent"
+    >
+      <h1 className="text-2xl font-bold text-center">{showtrack ? "Track" : "No Track"}</h1>
       <input
         type="text"
         name="title"
@@ -141,17 +176,23 @@ export default function UploadSongForm() {
         placeholder="Description"
         className="border p-2 rounded bg-transparent text-white"
       />
-      <input
-        type="number"
-        name="ranking"
-        value={formData.ranking}
-        onChange={handleChange}
-        placeholder="Ranking"
-        className="border p-2 rounded bg-transparent text-white"
-        required
-      />
-      <Button type="submit"  className="border rounded-lg border-white-400 p-6 hover:bg-slate-500 transition-all duration-300" disabled={isLoading}>
-        Upload Song
+      {!showtrack && (
+        <input
+          type="number"
+          name="ranking"
+          value={formData.ranking}
+          onChange={handleChange}
+          placeholder="Ranking"
+          className="border p-2 rounded bg-transparent text-white"
+          required
+        />
+      )}
+      <Button
+        type="submit"
+        className="border rounded-lg border-white-400 p-6 hover:bg-slate-500 transition-all duration-300"
+        disabled={isLoading}
+      >
+        {isLoading ? "Uploading..." : "Upload Song"}
         <Upload className="w-4 h-4 ml-2" />
       </Button>
     </form>

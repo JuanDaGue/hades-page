@@ -8,20 +8,20 @@ import UploadSongForm from "./components/Form/UploadSongForm";
 
 export default function UploadLyricsPage() {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [showtrack, setShowTrack] = useState(false);
 
   return (
     <div className="bg-zinc-900 h-full flex flex-col justify-center items-center">
       <Logo />
       <h1 className="text-2xl my-8 font-semibold">Sube tus letras favoritas 🤟🏽</h1>
       <div className="max-w-2xl mx-auto grid grid-cols-2 gap-4 mb-8">
-        <NormalLyrics />
-        <TrendingLyrics />
+        <NormalLyrics showUpdateForm={showUpdateForm} setShowUpdateForm={setShowUpdateForm}  setShowTrack={setShowTrack} />
+        <TrendingLyrics showUpdateForm={showUpdateForm} setShowUpdateForm={setShowUpdateForm}  setShowTrack={setShowTrack}/>
       </div>
       <Button className="mb-4" onClick={() => setShowUpdateForm(!showUpdateForm)}>
         {showUpdateForm ? "Close Update Form" : "Open Update Form"}
       </Button>
-      {showUpdateForm && <UploadSongForm />}
+      {showUpdateForm && <UploadSongForm  showtrack={showtrack} />}
     </div>
   );
 }
-
