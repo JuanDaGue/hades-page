@@ -27,7 +27,7 @@ export default async function LyricsPage() {
         </h1>
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mb-8">
           <h2 className="text-xl font-semibold col-span-full text-white">
-            Songs (Demos without guitar pro complete)
+            Canciones con pista mp3 incluida
           </h2>
           {lyrics.map((song) => (
             <Card key={song.id} id={song.id} title={song.title} artist={song.artist} />
@@ -35,7 +35,7 @@ export default async function LyricsPage() {
         </div>
         <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
           <h2 className="text-xl font-semibold col-span-full text-white">
-            Popular Songs in Production with Guitar Pro File
+            Canciones con letra, pista mp3 no incluida
           </h2>
           {popularSongs.map((song) => (
             <Card key={song.id} id={song.id} title={song.title} artist={song.artist} />

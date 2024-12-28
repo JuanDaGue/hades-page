@@ -35,22 +35,22 @@ export function DesktopNavbar(props: NavbarDesktopProps) {
             </li>
             <li>
               <Link href="/lyrics" legacyBehavior>
-                <a className="text-white hover:text-rose-600 transition-all duration-300">Lyrics</a>
+                <a className="text-white hover:text-rose-600 transition-all duration-300">Letras</a>
               </Link>
             </li>
             <li>
               <Link href="/events" legacyBehavior>
-                <a className="text-white hover:text-rose-600 transition-all duration-300">Events</a>
+                <a className="text-white hover:text-rose-600 transition-all duration-300">Eventos</a>
               </Link>
             </li>
             <li>
               <Link href="/instruments" legacyBehavior>
-                <a className="text-white hover:text-rose-600 transition-all duration-300">Instruments</a>
+                <a className="text-white hover:text-rose-600 transition-all duration-300">Instrumentos</a>
               </Link>
             </li>
             <li>
               <Link href="/songs" legacyBehavior>
-                <a className="text-white hover:text-rose-600 transition-all duration-300">Songs</a>
+                <a className="text-white hover:text-rose-600 transition-all duration-300">Canciones</a>
               </Link>
             </li>
           </ul>
